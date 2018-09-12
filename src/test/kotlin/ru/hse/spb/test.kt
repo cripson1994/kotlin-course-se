@@ -5,7 +5,17 @@ import org.junit.Test
 
 class TestSource {
     @Test
-    fun testGreeting() {
-        assertEquals("Hello, world!", getGreeting())
+    fun wordTest() {
+        assertEquals(solution("petr"), "YES")
+    }
+
+    @Test
+    fun notAcceptSeqTest() {
+        assertEquals(solution("etis atis animatis etis atis amatis"), "NO")
+    }
+
+    @Test
+    fun acceptSeqTest() {
+        assertEquals(solution("nataliala kataliala vetra feinites"), "YES")
     }
 }
