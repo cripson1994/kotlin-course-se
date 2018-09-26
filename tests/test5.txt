@@ -1,0 +1,14 @@
+if (5 + 6 > 10 && 4 == 2 + 2) {
+    println(1)
+} else {
+    println(0)
+}
+fun false() {
+    return 0
+}
+
+if (false()) {
+    println(1)
+} else {
+    println(0)
+}

@@ -1,0 +1,26 @@
+fun foo(n) {
+    fun bar(m) {
+        return m + n
+    }
+
+    return bar(1)
+}
+
+fun fib(n) {
+    if (n <= 1) {
+        return 1
+    }
+    return fib(n - 1) + fib(n - 2)
+}
+
+fun less(a, b) {
+    if (a >= b) {
+        println(0)
+    } else {
+        println(1)
+    }
+}
+
+println(foo(10))
+println(fib(10))
+println(less(3, 4))

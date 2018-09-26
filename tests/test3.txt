@@ -1,0 +1,9 @@
+var a = 44
+var b = 11
+fun mul2(a) {
+    return a * 2
+}
+
+println((44 + mul2(a) - (3 + 4) / 7) % 2 + (b - 3))
+println((5 == 5 && 4 <= 3) || (3 - 2) != 4 && (a < b))
+println(4 && 28 == 4 + 1 * 30 - (mul2(3)))
