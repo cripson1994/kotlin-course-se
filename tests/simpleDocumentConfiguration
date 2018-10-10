@@ -1,0 +1,7 @@
+\documentClass{class}
+\usepackage{package1}
+\usepackage[arg1, arg2]{package2}
+\begin{document}
+  \begin{frame}
+  \end{frame}
+\end{document}

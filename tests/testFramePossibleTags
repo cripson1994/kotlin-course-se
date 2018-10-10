@@ -1,0 +1,18 @@
+\documentClass{class}
+\begin{document}
+  \begin{frame}
+    \frametitle[a=1, b=2, c=3]{frameTile}
+    \begin{itemize}
+    \end{itemize}
+    \begin{enumerate}
+    \end{enumerate}
+    test math formula:
+    $5 + 5 - (4 * 3) ^ 2$
+    \begin{flushleft}
+    \end{flushleft}
+    \begin{myTag}
+    \end{myTag}
+  \end{frame}
+  \begin{frame}
+  \end{frame}
+\end{document}

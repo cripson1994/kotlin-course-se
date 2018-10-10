@@ -1,0 +1,20 @@
+\documentClass{class}
+\usepackage{package}
+\begin{document}
+  \begin{frame}
+    \begin{flushleft}
+      \begin{itemize}
+      \end{itemize}
+    \end{flushleft}
+    \begin{flushright}
+      \begin{enumerate}
+      \end{enumerate}
+    \end{flushright}
+    \begin{center}
+      \begin{myTag}
+      \end{myTag}
+      test formula into alignment:
+      $5 + 5 = 10$
+    \end{center}
+  \end{frame}
+\end{document}

@@ -1,0 +1,13 @@
+\documentClass{class}
+\usepackage{package}
+\begin{document}
+  \begin{frame}
+    \begin{myTag}[abc=123, zxc=456]
+      Custom tag don't have any tags
+      But you can write math formula here:
+      2 * 2 = 5 + 7 - 8
+      5 < 10 - 6
+      end
+    \end{myTag}
+  \end{frame}
+\end{document}

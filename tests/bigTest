@@ -1,0 +1,47 @@
+\documentClass{class}
+\usepackage{package1}
+\usepackage[a, bc, efg, hijk]{package2}
+\begin{document}
+  \begin{frame}
+    \frametitle[x=a, y=b]{firstFrame}
+    first frame
+    \begin{itemize}
+      \begin{item}
+        $1 + 1 = 2$
+        \begin{enumerate}
+          \begin{item}
+            inner item
+          \end{item}
+          \begin{item}
+            item number 1
+          \end{item}
+          \begin{item}
+            item number 2
+          \end{item}
+        \end{enumerate}
+      \end{item}
+      \begin{item}
+        \begin{tagInItem}[one=1, two=2]
+          $one + two = 3$
+        \end{tagInItem}
+      \end{item}
+    \end{itemize}
+  \end{frame}
+  \begin{frame}
+    \frametitle{Second}
+    \begin{flushright}
+      \begin{itemize}
+        \begin{item}
+        \end{item}
+      \end{itemize}
+    \end{flushright}
+    \begin{center}
+      $5 + 7$
+    \end{center}
+  \end{frame}
+  \begin{frame}
+    \begin{EmptyTag}
+      $0$
+    \end{EmptyTag}
+  \end{frame}
+\end{document}

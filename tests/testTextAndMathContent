@@ -1,0 +1,18 @@
+\documentClass{class}
+\usepackage{package}
+\begin{document}
+  \begin{frame}
+    start
+    formula:
+    $a + b - c$
+    formula number 2 and 3:
+    $4 < 5$
+    $v + 8 = 4 / 4$
+    \begin{itemize}
+    \end{itemize}
+    after tag
+    \begin{flushright}
+      inner
+    \end{flushright}
+  \end{frame}
+\end{document}

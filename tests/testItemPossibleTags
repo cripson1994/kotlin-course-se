@@ -1,0 +1,20 @@
+\documentClass{class}
+\usepackage{package}
+\begin{document}
+  \begin{frame}
+    \begin{itemize}
+      \begin{item}
+        \begin{itemize}
+        \end{itemize}
+        \begin{enumerate}
+        \end{enumerate}
+        \begin{center}
+        \end{center}
+        \begin{myTag}
+        \end{myTag}
+        test formula into item:
+        $2 * 4 + 2 = 10$
+      \end{item}
+    \end{itemize}
+  \end{frame}
+\end{document}
