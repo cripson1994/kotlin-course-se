@@ -17,12 +17,12 @@ fun main(args: Array<String>) {
     try {
         val lexer = FunLangLexer(CharStreams.fromFileName(file))
         lexer.removeErrorListeners()
-        lexer.addErrorListener(ErrorListener.INSTANCE)
+        lexer.addErrorListener(ErrorListener)
 
         val tokens = CommonTokenStream(lexer)
         val parser = FunLangParser(tokens)
         parser.removeErrorListeners()
-        parser.addErrorListener(ErrorListener.INSTANCE)
+        parser.addErrorListener(ErrorListener)
         parser.file().accept(Executor(System.out))
     } catch (e: ParseCancellationException) {
         println(e.message)

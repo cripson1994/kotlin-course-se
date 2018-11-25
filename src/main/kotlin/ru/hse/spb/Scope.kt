@@ -4,11 +4,9 @@ import antlr.FunLangParser
 import java.util.*
 import kotlin.collections.HashMap
 
-class Scope {
+class Scope() {
 
-    constructor()
-
-    constructor(scope: Scope) {
+    constructor(scope: Scope) : this() {
         val otherScope = scope.nodes
         for (node in otherScope) {
             this.nodes.add(node)

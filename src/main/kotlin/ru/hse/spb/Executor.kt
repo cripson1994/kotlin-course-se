@@ -6,21 +6,10 @@ import java.io.PrintStream
 import java.util.stream.Collectors
 import kotlin.streams.toList
 
-class Executor : FunLangBaseVisitor<Int> {
-    private val out: PrintStream;
-    private var scope: Scope = Scope()
+class Executor(private val out: PrintStream, private var scope: Scope = Scope()) : FunLangBaseVisitor<Int>() {
     private var returnState: Int? = null
     private var basicExecutor = BasicExecutor()
     private var expressionExecutor = ExpressionExecutor()
-
-    constructor(out: PrintStream) : super() {
-        this.out = out
-    }
-
-    constructor(scope: Scope, out: PrintStream) : super() {
-        this.scope = scope
-        this.out = out
-    }
 
     override fun visitFile(ctx: FunLangParser.FileContext): Int? {
         scope.addNode()
@@ -74,12 +63,12 @@ class Executor : FunLangBaseVisitor<Int> {
             val funcName = ctx.IDENT().text
             try {
                 if (!ArgumentsIsValidity(getArgumentsNames(ctx.parameter_names()))) {
-                    out.println("Function ${funcName} contains duplicate argument names")
+                    out.println("Function $funcName contains duplicate argument names")
                     System.exit(1)
                 }
                 scope.addFunction(funcName, ctx)
             } catch (e: OverrideException) {
-                out.println("Function ${funcName} can not be overloaded")
+                out.println("Function $funcName can not be overloaded")
                 System.exit(1)
             }
         }
@@ -134,7 +123,7 @@ class Executor : FunLangBaseVisitor<Int> {
 
         override fun visitPrintln(ctx: FunLangParser.PrintlnContext) {
             val values = getArgumentsValues(ctx.arguments())
-            val result = values.stream().map { x -> x.toString() }.collect(Collectors.joining(" "))
+            val result = values.joinToString(" ")
             out.println(result)
         }
     }
@@ -162,7 +151,7 @@ class Executor : FunLangBaseVisitor<Int> {
                 for (i in 0 until argumentsNames.size) {
                     scope.addVariable(argumentsNames[i], argumentsValues[i])
                 }
-                result = func.body.block_with_braces().accept(Executor(scope, out))
+                result = func.body.block_with_braces().accept(Executor(out, scope))
                 scope.removeNode()
             } catch (e: ElementNotFoundException) {
                 out.println("Function ${funcName} not in scope")
@@ -261,7 +250,7 @@ class Executor : FunLangBaseVisitor<Int> {
     }
 
     fun getArgumentsValues(ctx: FunLangParser.ArgumentsContext): List<Int> {
-        return ctx.expression().stream().mapToInt { x -> x.accept(expressionExecutor) }.toList()
+        return ctx.expression().map { it.accept(expressionExecutor) }
     }
 
     fun getArgumentsNames(ctx: FunLangParser.Parameter_namesContext): List<String> {

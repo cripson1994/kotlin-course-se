@@ -10,12 +10,12 @@ abstract class FunLangTest {
      protected fun createParser(path: String): FunLangParser {
         val lexer = FunLangLexer(CharStreams.fromFileName(path))
         lexer.removeErrorListeners()
-        lexer.addErrorListener(ErrorListener.INSTANCE)
+        lexer.addErrorListener(ErrorListener)
 
         val tokens = CommonTokenStream(lexer)
         val parser = FunLangParser(tokens)
         parser.removeErrorListeners()
-        parser.addErrorListener(ErrorListener.INSTANCE)
+        parser.addErrorListener(ErrorListener)
         return parser
     }
 
